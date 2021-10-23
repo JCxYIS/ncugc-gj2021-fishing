@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour
     private State state = State.Idle;
     public State GameState => state;
 
+    public Player Player;
+    public Bait Bait;
+
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.

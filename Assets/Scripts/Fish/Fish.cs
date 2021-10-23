@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Fish : MonoBehaviour
 {
     public FishData fishData;
+    private bool flipX;
     
 
     /// <summary>

@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         GameController.Instance.ChangeState(GameController.State.ThrowBait);
         animator.Play("ThrowBait");
 
-        yield return new WaitForSeconds(.7f);    
+        yield return new WaitForSeconds(.6f);    
         print("Baited");
 
         GameController.Instance.ChangeState(GameController.State.Fishing);

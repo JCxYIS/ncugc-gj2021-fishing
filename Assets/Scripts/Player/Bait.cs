@@ -11,9 +11,17 @@ public class Bait : MonoBehaviour
     [Range(0f, 1f)]
     public float controllSensityX = 0.1f;
 
+    public float ropeLength = 50;
 
+    
+    // Variables
+    public float Depth => -transform.position.y;
+
+    public float usedLength { get; private set; } = 0;
+    Vector3 lastPos;
     Rigidbody2D rigidbody2D;
     Camera camera;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -23,6 +31,7 @@ public class Bait : MonoBehaviour
     {
         camera = Camera.main;
         rigidbody2D = GetComponent<Rigidbody2D>();
+        lastPos = transform.position;
     }
 
     /// <summary>
@@ -50,7 +59,7 @@ public class Bait : MonoBehaviour
             }
 
             velocity.x = Mathf.Lerp(velocity.x, mousePosX * Mathf.Abs(maxVelocityX), controllSensityX);
-            print(velocity.y);
+            // print(velocity.y);
 
             rigidbody2D.velocity = velocity;
         }
@@ -58,6 +67,10 @@ public class Bait : MonoBehaviour
         {
             rigidbody2D.simulated = false;
         }
+
+        // 
+        usedLength += (transform.position - lastPos).magnitude;
+        lastPos = transform.position;
     }
 
     void CalcPos()

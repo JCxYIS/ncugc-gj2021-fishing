@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 // [CreateAssetMenu(fileName = "FishData", menuName = "ScriptableObject/FishData")]
-[SerializeField]
+[System.Serializable]
 public class FishData //: ScriptableObject
 {
     [Header("Basic")]
-    public string Id;
     public int Score;
     public float Rareness; // this value is the avg of specified fish spawn count in each game
     
@@ -20,7 +19,4 @@ public class FishData //: ScriptableObject
     public float FollowSpeedMultiplier;
     public bool FollowBait;
     public bool AvoidBait;
-
-    [Header("Light")]
-    public Color LightColor;
 }
