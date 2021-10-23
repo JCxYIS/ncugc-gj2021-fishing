@@ -5,13 +5,15 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
-    public enum State { Idle, ThrowBait, Fishing, FishHooked, Hook };
+    public enum State { Idle, ThrowBait, Fishing, TowBack, Hook, Hooking, End };
 
     private State state = State.Idle;
     public State GameState => state;
 
+    public Cinemachine.CinemachineVirtualCamera virtualCamera;    
     public Player Player;
-    public Bait Bait;
+    [HideInInspector] public Bait Bait;
+    
 
 
     /// <summary>
@@ -37,11 +39,26 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
+        switch(state)
+        {            
+            case State.Fishing:
+                virtualCamera.Follow = Bait.transform;
+                break;
+            case State.End:
+                virtualCamera.Follow = Player.transform;
+                Destroy(Bait.gameObject);
+                Bait = null;
+                state = State.Idle;
+                break;            
+        }
     }
 
-    public void ChangeState(State newState)
+    public void NextState(State expectedNextState)
     {
-        state = newState;
+        state = state+1;
+        if(state != expectedNextState)
+        {
+            Debug.LogWarning($"Not expected State! Expect {expectedNextState} but get {state}");
+        }
     }
 }

@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
     Animator animator;
 
+    public Vector2 _spawnBaitPos;
+    public GameObject _baitPrefab;
+
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -32,20 +36,39 @@ public class Player : MonoBehaviour
             case GameController.State.Fishing:
                 break;
 
-            case GameController.State.FishHooked:
+            case GameController.State.TowBack:
+                break;
+            
+            case GameController.State.Hook:
+                StartCoroutine(HookAnim());                
+                break;
+
+            case GameController.State.Hooking:
                 break;
         }
     }
 
     IEnumerator ThrowBaitAnim()
     {
-        GameController.Instance.ChangeState(GameController.State.ThrowBait);
+        GameController.Instance.NextState(GameController.State.ThrowBait);
         animator.Play("ThrowBait");
 
-        yield return new WaitForSeconds(.6f);    
+        yield return new WaitForSeconds(.5f);    
         print("Baited");
 
-        GameController.Instance.ChangeState(GameController.State.Fishing);
+        var bait = Instantiate(_baitPrefab, _spawnBaitPos, Quaternion.identity);
+        GameController.Instance.Bait = bait.GetComponent<Bait>();
+        GameController.Instance.NextState(GameController.State.Fishing);
         animator.Play("Fishing");
+    }
+
+    IEnumerator HookAnim()
+    {
+        animator.Play("Hook");
+        GameController.Instance.NextState( GameController.State.Hooking );
+        
+        yield return new WaitForSeconds(.7f);
+        
+        GameController.Instance.NextState( GameController.State.End);
     }
 }

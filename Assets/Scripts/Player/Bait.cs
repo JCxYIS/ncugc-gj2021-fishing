@@ -7,6 +7,7 @@ public class Bait : MonoBehaviour
     [Header("Params")]
     public float maxVelocityX = 1f;
     public float maxVelocityY = -3f;
+    public float towBackSpeed = 2f;
     
     [Range(0f, 1f)]
     public float controllSensityX = 0.1f;
@@ -15,9 +16,14 @@ public class Bait : MonoBehaviour
 
     
     // Variables
-    public float Depth => -transform.position.y;
+    [Header("Variables")]
+    public Stack<Vector2> HistoryPos = new Stack<Vector2>();
 
+    public float Depth => -transform.position.y;
+    
     public float usedLength { get; private set; } = 0;
+
+
     Vector3 lastPos;
     Rigidbody2D rigidbody2D;
     Camera camera;
@@ -62,19 +68,50 @@ public class Bait : MonoBehaviour
             // print(velocity.y);
 
             rigidbody2D.velocity = velocity;
+
+            //             
+            if(usedLength >= ropeLength)
+            {
+                // length is exceed
+                usedLength = ropeLength;
+                GameController.Instance.NextState(GameController.State.TowBack);
+            }
+            else
+            {
+                // add length
+                usedLength += (transform.position - lastPos).magnitude;
+                lastPos = transform.position;   
+                HistoryPos.Push(transform.position);
+            }
         }
         else
         {
             rigidbody2D.simulated = false;
         }
 
-        // 
-        usedLength += (transform.position - lastPos).magnitude;
-        lastPos = transform.position;
-    }
+        if(GameController.Instance.GameState == GameController.State.TowBack)
+        {
+            print(HistoryPos.Count);           
 
-    void CalcPos()
-    {
-        
+            float towDistanceLeft = towBackSpeed;
+            while(towDistanceLeft > 0)
+            {
+                // stack sanity
+                if(HistoryPos.Count == 0)
+                {
+                    GameController.Instance.NextState(GameController.State.Hook);
+                    return;
+                }
+
+                // chaos towback code
+                float tmpLeft = towDistanceLeft;
+                towDistanceLeft -= Vector2.Distance((Vector2)transform.position, HistoryPos.Peek());
+                Vector2 newPos = Vector2.MoveTowards(transform.position, HistoryPos.Peek(), tmpLeft);
+                print($"{transform.position} -> {HistoryPos.Peek()} => {newPos} (Left {towDistanceLeft})");
+                if(towDistanceLeft > 0)
+                    HistoryPos.Pop();
+                transform.position = newPos;
+            }
+        }
     }
 }

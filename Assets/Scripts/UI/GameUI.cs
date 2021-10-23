@@ -14,7 +14,7 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         Bait bait = GameController.Instance.Bait;
-        Text_Depth.text = $"Depth: {bait.Depth.ToString("0.00")} m";
-        Text_Rope.text = $"Rope: {bait.usedLength.ToString("0.0")}/{bait.ropeLength.ToString("0.00")} m";
+        Text_Depth.text = $"Depth: {(bait?.Depth ?? 0).ToString("0.00")} m";
+        Text_Rope.text = $"Rope: {(bait?.usedLength ?? 0).ToString("0.0")}/{(bait?.ropeLength ?? 0).ToString("0.00")} m";
     }
 }
