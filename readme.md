@@ -4,6 +4,9 @@
 
 ## Used 3rd-party assets
 
+### Font
+- Impacted https://www.dafont.com/impacted-hr.font
+
 ### Sprites
 - Backgrounds https://pressstart.vip/assets
 - Underwater Background https://olgas-lab.itch.io/underwater-background
