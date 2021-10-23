@@ -15,6 +15,6 @@ public class GameUI : MonoBehaviour
     {
         Bait bait = GameController.Instance.Bait;
         Text_Depth.text = $"Depth: {(bait?.Depth ?? 0).ToString("0.00")} m";
-        Text_Rope.text = $"Rope: {(bait?.usedLength ?? 0).ToString("0.0")}/{(bait?.ropeLength ?? 0).ToString("0.00")} m";
+        Text_Rope.text = $"Rope: {(bait?.RopeLeft ?? 0).ToString("0.00")} m";
     }
 }

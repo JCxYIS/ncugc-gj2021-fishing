@@ -22,6 +22,7 @@ public class Bait : MonoBehaviour
     public float Depth => -transform.position.y;
     
     public float usedLength { get; private set; } = 0;
+    public float RopeLeft => ropeLength - usedLength;
 
 
     Vector3 lastPos;

@@ -20,5 +20,7 @@ public class LightDecentController : MonoBehaviour
     void Update()
     {
         light.intensity = 1f + _decentRate * cameraTransform.position.y;
+        if(light.intensity < 0)
+            light.intensity = 0;
     }
 }

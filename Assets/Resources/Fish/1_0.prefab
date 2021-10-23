@@ -45,6 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48af37df855efc548a810de3f03a3f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishData:
+    Score: 87
+    Rareness: 30
+    MinDepth: 1
+    MaxDepth: 10
+    SwimSpeed: 0
+    FollowSpeedMultiplier: 0
+    FollowBait: 0
+    AvoidBait: 0
 --- !u!212 &2794918045732803997
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ MonoBehaviour:
   maxVelocityX: 4.33
   maxVelocityY: -2
   towBackSpeed: 0.6
-  controllSensityX: 0.01
+  controllSensityX: 0.032
   ropeLength: 10
 --- !u!212 &5712414688540130952
 SpriteRenderer:

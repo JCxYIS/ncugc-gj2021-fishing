@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
 
     public Cinemachine.CinemachineVirtualCamera virtualCamera;    
     public Player Player;
+    public FishSpawner FishSpawner;
     [HideInInspector] public Bait Bait;
     
 
@@ -31,7 +32,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        
+        FishSpawner.Respawn();        
     }
 
     /// <summary>
@@ -40,7 +41,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         switch(state)
-        {            
+        {
             case State.Fishing:
                 virtualCamera.Follow = Bait.transform;
                 break;
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour
                 Destroy(Bait.gameObject);
                 Bait = null;
                 state = State.Idle;
+                FishSpawner.Respawn();
                 break;            
         }
     }
