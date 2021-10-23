@@ -694,6 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4af0e6a78b17a043ad35bbb6b2ab980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnXLimit: 5
   spawnedFish: []
 --- !u!1 &591722422
 GameObject:

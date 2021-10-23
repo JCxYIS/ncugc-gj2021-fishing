@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         GameController.Instance.NextState(GameController.State.ThrowBait);
         animator.Play("ThrowBait");
 
-        yield return new WaitForSeconds(.5f);    
+        yield return new WaitForSeconds(.48763f);    
         print("Baited");
 
         var bait = Instantiate(_baitPrefab, _spawnBaitPos, Quaternion.identity);
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         animator.Play("Hook");
         GameController.Instance.NextState( GameController.State.Hooking );
         
-        yield return new WaitForSeconds(.7f);
+        yield return new WaitForSeconds(.48763f);
         
         GameController.Instance.NextState( GameController.State.End);
     }

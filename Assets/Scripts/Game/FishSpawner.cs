@@ -15,6 +15,7 @@ public class FishSpawner : MonoBehaviour
         if(fishContainer)
         {
             Destroy(fishContainer.gameObject);
+            spawnedFish.ForEach(s=>Destroy(s));
             spawnedFish.Clear();
         }        
         fishContainer = new GameObject().transform;
@@ -36,7 +37,10 @@ public class FishSpawner : MonoBehaviour
             {
                 // where to put fish?
                 float y = fish.fishData.MinDepth + (fish.fishData.MaxDepth - fish.fishData.MinDepth) * Random.Range(0f, 1f);
-                var f = Instantiate(fish.gameObject, new Vector2(-Random.Range(-4, 4), -y), Quaternion.identity);
+                var f = Instantiate(
+                    fish.gameObject, 
+                    new Vector2(-Random.Range(-Fish.BOUNDRY, Fish.BOUNDRY), -y), 
+                    Quaternion.identity);
                 f.transform.SetParent(fishContainer);
                 spawnedFish.Add(f);
 

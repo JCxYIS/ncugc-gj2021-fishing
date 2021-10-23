@@ -45,10 +45,15 @@ public class GameController : MonoBehaviour
             case State.Fishing:
                 virtualCamera.Follow = Bait.transform;
                 break;
-            case State.End:
-                virtualCamera.Follow = Player.transform;
-                Destroy(Bait.gameObject);
-                Bait = null;
+            case State.Hooking:
+                if(Bait)
+                {
+                    virtualCamera.Follow = Player.transform;
+                    Destroy(Bait.gameObject);
+                    Bait = null;
+                }
+                break;
+            case State.End:                
                 state = State.Idle;
                 FishSpawner.Respawn();
                 break;            
