@@ -7,3 +7,4 @@
 ### Sprites
 - Backgrounds https://pressstart.vip/assets
 - Underwater Background https://olgas-lab.itch.io/underwater-background
+- Fishing Game Assets Pixel Art https://opengameart.org/content/fishing-game-assets-pixel-art
