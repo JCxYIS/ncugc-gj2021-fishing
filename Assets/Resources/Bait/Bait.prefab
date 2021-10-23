@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbe486e03ef2f84f97d29523cc4355b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocityX: 4.33
+  maxVelocityX: 3
   maxVelocityY: -2
-  towBackSpeed: 0.3
+  towBackSpeed: 0.2
   controllSensityX: 0.032
   ropeLength: 10
 --- !u!212 &5712414688540130952

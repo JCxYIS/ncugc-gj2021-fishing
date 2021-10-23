@@ -23,6 +23,7 @@ public class Bait : MonoBehaviour
     
     public float usedLength { get; private set; } = 0;
     public float RopeLeft => ropeLength - usedLength;
+    public Fish FishCaught;
 
 
     Vector3 lastPos;
@@ -127,6 +128,7 @@ public class Bait : MonoBehaviour
         if(fish)
         {
             GameController.Instance.NextState(GameController.State.TowBack);
+            FishCaught = fish;
             fish.Caught();
         }
     }

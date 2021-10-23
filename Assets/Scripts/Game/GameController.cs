@@ -49,14 +49,16 @@ public class GameController : MonoBehaviour
                 if(Bait)
                 {
                     virtualCamera.Follow = Player.transform;
+                    if(Bait.FishCaught)
+                        GameManager.Money += Bait.FishCaught.fishData.Score;
                     Destroy(Bait.gameObject);
                     Bait = null;
                 }
                 break;
-            case State.End:                
-                state = State.Idle;
+            case State.End:
                 FishSpawner.Respawn();
-                break;            
+                state = State.Idle;
+                break;
         }
     }
 

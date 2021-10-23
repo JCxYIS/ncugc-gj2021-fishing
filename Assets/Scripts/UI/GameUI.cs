@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] TMP_Text Text_Depth;
     [SerializeField] TMP_Text Text_Rope;
+    [SerializeField] TMP_Text Text_Money;
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -16,5 +17,6 @@ public class GameUI : MonoBehaviour
         Bait bait = GameController.Instance.Bait;
         Text_Depth.text = $"Depth: {(bait?.Depth ?? 0).ToString("0.00")} m";
         Text_Rope.text = $"Rope: {(bait?.RopeLeft ?? 0).ToString("0.00")} m";
+        Text_Money.text = $"{GameManager.Money.ToString("0")}";
     }
 }
