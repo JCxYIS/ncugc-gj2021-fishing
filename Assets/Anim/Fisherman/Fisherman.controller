@@ -40,7 +40,7 @@ AnimatorStateMachine:
     m_Position: {x: 200, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4203639481696425829}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_Position: {x: 230, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2716660402662012069}
     m_Position: {x: 270, y: 130, z: 0}
@@ -118,7 +118,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Power
+  m_Name: ThrowBait
   m_Speed: -1
   m_CycleOffset: 0
   m_Transitions: []
@@ -196,7 +196,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fish
+  m_Name: Fishing
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
