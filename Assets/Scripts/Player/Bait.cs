@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Bait : MonoBehaviour
 {
+    [Header("Bindings")]
+    public LineRenderer lineRenderer;
+
     [Header("Params")]
     public float maxVelocityX = 1f;
     public float maxVelocityY = -3f;
@@ -17,7 +20,7 @@ public class Bait : MonoBehaviour
     
     // Variables
     [Header("Variables")]
-    public Stack<Vector2> HistoryPos = new Stack<Vector2>();
+    public Stack<Vector3> HistoryPos = new Stack<Vector3>();
 
     public float Depth => -transform.position.y;
     
@@ -91,6 +94,7 @@ public class Bait : MonoBehaviour
             rigidbody2D.simulated = false;
         }
 
+        // TOW Back
         if(GameController.Instance.GameState == GameController.State.TowBack)
         {
             print(HistoryPos.Count);           
@@ -115,6 +119,10 @@ public class Bait : MonoBehaviour
                 transform.position = newPos;
             }
         }
+
+        // line
+        lineRenderer.positionCount = HistoryPos.Count;
+        lineRenderer.SetPositions(HistoryPos.ToArray());
     }
 
     /// <summary>

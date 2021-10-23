@@ -10,6 +10,9 @@ public class LightDecentController : MonoBehaviour
 
     public float _decentRate;
 
+    public static float CurrentDensity;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,8 @@ public class LightDecentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        light.intensity = 1f + _decentRate * cameraTransform.position.y;
+        CurrentDensity = 1f + _decentRate * cameraTransform.position.y;
+        light.intensity = CurrentDensity;
         if(light.intensity < 0)
             light.intensity = 0;
     }

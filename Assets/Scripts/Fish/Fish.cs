@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Fish : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Fish : MonoBehaviour
     private bool flipX;
 
     SpriteRenderer _spriteRenderer;
+    [SerializeField] Light2D light;
     
 
     /// <summary>
@@ -17,8 +19,7 @@ public class Fish : MonoBehaviour
     /// </summary>
     IEnumerator Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-
+        _spriteRenderer = GetComponent<SpriteRenderer>();        
 
         while(true)
         {
@@ -34,6 +35,9 @@ public class Fish : MonoBehaviour
     {
         _spriteRenderer.flipX = flipX;
         transform.position += Vector3.left / 100f * (flipX?1:-1) * fishData.SwimSpeed;
+
+        if(light)
+            light.intensity = 1 - LightDecentController.CurrentDensity;
     }
 
 
