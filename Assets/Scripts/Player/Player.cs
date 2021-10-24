@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
         if(GameController.Instance.GameState == GameController.State.Idle)
         {
             StartCoroutine(ThrowBaitAnim());
+            GameController.Instance.Instruction.StartShow();
         }
     }
 

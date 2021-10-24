@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public Player Player;
     public FishSpawner FishSpawner;
     public MusicController MusicController;
+    public Instruction Instruction;
     [HideInInspector] public Bait Bait;
     
 
