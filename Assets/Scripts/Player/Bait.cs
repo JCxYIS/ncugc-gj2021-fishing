@@ -60,6 +60,8 @@ public class Bait : MonoBehaviour
             if(GameManager.UseGyro) // gyro
             {
                 print(Input.gyro.attitude);
+                Input.gyro.enabled = true;
+                Input.gyro.updateInterval = 1/30f;
                 inputX = Input.gyro.attitude.w;
             }
             else // mouse

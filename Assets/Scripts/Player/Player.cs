@@ -26,11 +26,7 @@ public class Player : MonoBehaviour
     {
         switch(GameController.Instance.GameState)
         {
-            case GameController.State.Idle:
-                if(Input.GetMouseButtonDown(0))
-                {
-                    StartCoroutine(ThrowBaitAnim());
-                }
+            case GameController.State.Idle:                
                 break;
 
             case GameController.State.Fishing:
@@ -45,6 +41,14 @@ public class Player : MonoBehaviour
 
             case GameController.State.Hooking:
                 break;
+        }
+    }
+
+    public void DropTheBait()
+    {
+        if(GameController.Instance.GameState == GameController.State.Idle)
+        {
+            StartCoroutine(ThrowBaitAnim());
         }
     }
 

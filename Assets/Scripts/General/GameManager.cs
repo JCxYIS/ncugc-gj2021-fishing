@@ -18,5 +18,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static bool UseGyro = false;
+    public static bool UseGyro
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("CtrlMeth", 0) != 0;
+        }
+        set
+        {
+            PlayerPrefs.SetInt("CtrlMeth", value? 1 : 0);
+        }
+    }
 }

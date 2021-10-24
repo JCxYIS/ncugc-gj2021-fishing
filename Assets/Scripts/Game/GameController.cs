@@ -71,7 +71,8 @@ public class GameController : MonoBehaviour
         state = state+1;
         if(state != expectedNextState)
         {
-            Debug.LogWarning($"Not expected State! Expect {expectedNextState} but get {state}");
+            Debug.LogWarning($"Not expected State! Expect {expectedNextState} but get {state}. Force set to the later.");
+            state = expectedNextState;
         }
     }
 }
