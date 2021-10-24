@@ -156,6 +156,7 @@ public class Bait : MonoBehaviour
             GameController.Instance.NextState(GameController.State.TowBack);
             FishCaught = fish;
             fish.Caught();
+            GameController.Instance.MusicController.PlaySfx(GameController.Instance.MusicController.SFX_CaughtFish);
         }
     }
 }

@@ -2,7 +2,12 @@
 ## Topic: Fishing
 
 
-## Used 3rd-party assets
+## 3rd-party assets
+
+### BGM / SFX
+- Purple Planet https://www.purple-planet.com/
+- Sound Fishing https://www.soundfishing.eu/search.php
+- Wingless Seraph https://wingless-seraph.net/
 
 ### Font
 - Impacted https://www.dafont.com/impacted-hr.font

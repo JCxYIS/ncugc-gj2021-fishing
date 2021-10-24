@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public Cinemachine.CinemachineVirtualCamera virtualCamera;    
     public Player Player;
     public FishSpawner FishSpawner;
+    public MusicController MusicController;
     [HideInInspector] public Bait Bait;
     
 
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
                         GameManager.Money += Bait.FishCaught.fishData.Score;
                         if(Bait.FishCaught.name == "RickRoll")
                             Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                        MusicController.PlaySfx(MusicController.SFX_GetFish);
                     }
                     Destroy(Bait.gameObject);
                     Bait = null;

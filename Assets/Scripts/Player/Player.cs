@@ -55,6 +55,7 @@ public class Player : MonoBehaviour
     IEnumerator ThrowBaitAnim()
     {
         GameController.Instance.NextState(GameController.State.ThrowBait);
+        GameController.Instance.MusicController.PlaySfx(GameController.Instance.MusicController.SFX_StartFishing);
         animator.Play("ThrowBait");
 
         yield return new WaitForSeconds(.48763f);    

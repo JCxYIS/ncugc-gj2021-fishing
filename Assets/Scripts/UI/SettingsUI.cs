@@ -38,6 +38,6 @@ public class SettingsUI : MonoBehaviour
             gameObject.SetActive(true);
         }
 
-        transform.DOScale(active?Vector3.one:Vector3.zero, 0.39f).SetEase(Ease.OutQuad);
+        transform.DOScale(active?Vector3.one:Vector3.zero, 0.39f).SetEase(Ease.OutElastic);
     }
 }
