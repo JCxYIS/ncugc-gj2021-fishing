@@ -54,7 +54,7 @@ MonoBehaviour:
   maxVelocityY: -2
   towBackSpeed: 0.2
   controllSensityX: 0.032
-  ropeLength: 100
+  ropeLength: 39
   FishCaught: {fileID: 0}
 --- !u!212 &5712414688540130952
 SpriteRenderer:

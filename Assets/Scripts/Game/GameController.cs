@@ -50,7 +50,11 @@ public class GameController : MonoBehaviour
                 {
                     virtualCamera.Follow = Player.transform;
                     if(Bait.FishCaught)
+                    {
                         GameManager.Money += Bait.FishCaught.fishData.Score;
+                        if(Bait.FishCaught.name == "RickRoll")
+                            Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                    }
                     Destroy(Bait.gameObject);
                     Bait = null;
                 }

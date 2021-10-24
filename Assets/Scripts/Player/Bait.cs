@@ -54,13 +54,29 @@ public class Bait : MonoBehaviour
         {
             rigidbody2D.simulated = true;
 
-            // input
-            float mousePosX = Input.mousePosition.x;
-            mousePosX -= Screen.width / 2;
-            mousePosX /= (Screen.width / 2);
-            if(mousePosX > 1) mousePosX = 1;
-            if(mousePosX < -1) mousePosX = -1;
-            // print(mousePosX);
+            float inputX = 0;
+
+            // input: inputX should be (-1, 1)            
+            if(GameManager.UseGyro) // gyro
+            {
+                print(Input.gyro.attitude);
+                inputX = Input.gyro.attitude.w;
+            }
+            else // mouse
+            {
+                // print(mousePosX);
+                inputX = Input.mousePosition.x;
+                inputX -= Screen.width / 2;
+                inputX /= (Screen.width / 2);
+                if(inputX > 1) inputX = 1;
+                if(inputX < -1) inputX = -1;
+            }
+
+            // limit X
+            if(transform.position.x > Fish.BOUNDRY)
+                inputX = Random.Range(-1, 0);
+            else if(transform.position.x < -Fish.BOUNDRY)
+                inputX = Random.Range(0, 1);
 
             // calc pos
             Vector2 velocity = rigidbody2D.velocity;
@@ -69,7 +85,7 @@ public class Bait : MonoBehaviour
                 velocity.y = maxVelocityY;
             }
 
-            velocity.x = Mathf.Lerp(velocity.x, mousePosX * Mathf.Abs(maxVelocityX), controllSensityX);
+            velocity.x = Mathf.Lerp(velocity.x, inputX * Mathf.Abs(maxVelocityX), controllSensityX);
             // print(velocity.y);
 
             rigidbody2D.velocity = velocity;

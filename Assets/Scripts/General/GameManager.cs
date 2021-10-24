@@ -17,4 +17,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("ShutUpAndTakeMy", value);
         }
     }
+
+    public static bool UseGyro = false;
 }

@@ -41,6 +41,7 @@ public class FishSpawner : MonoBehaviour
                     fish.gameObject, 
                     new Vector2(-Random.Range(-Fish.BOUNDRY, Fish.BOUNDRY), -y), 
                     Quaternion.identity);
+                f.name = fish.name;
                 f.transform.SetParent(fishContainer);
                 spawnedFish.Add(f);
 
