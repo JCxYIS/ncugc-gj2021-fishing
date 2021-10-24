@@ -1,6 +1,17 @@
 # NCUGC 7th Game Jam!
-## Topic: Fishing
+###### Topic: Fishing
 
+# Drop the Bait.
+> Drop the Bait. Catch the Fish. Be the Rich.
+
+## How to play
+Use your mouse to control the bait's movement.
+Using Gyro is supported, too
+
+
+## Project Site
+- Github (Source Code): https://github.com/JCxYIS/ncugc-gj2021-fishing
+- Itchio (Game Demo): https://jcxyis.itch.io/drop-the-bait
 
 ## 3rd-party assets
 
@@ -22,3 +33,7 @@
 
 ## ???
 - https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+
+## Developer
+JCxYIS
