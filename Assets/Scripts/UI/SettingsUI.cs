@@ -25,8 +25,11 @@ public class SettingsUI : MonoBehaviour
     {
         _controlMethodDropdown.options = new List<TMP_Dropdown.OptionData>{
             new TMP_Dropdown.OptionData("Use Cursor Movement"),
-            new TMP_Dropdown.OptionData("Use Gyro"),
         };
+        if(SystemInfo.supportsGyroscope)
+            _controlMethodDropdown.AddOptions(new List<TMP_Dropdown.OptionData>(){
+                new TMP_Dropdown.OptionData("Use Gyro")
+            });
         _controlMethodDropdown.onValueChanged.AddListener(val =>  GameManager.UseGyro = val != 0);
     }
 
